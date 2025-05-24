@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    height: 100%;
+    overflow: hidden; /* Isso remove a rolagem */
+}
+
+.frase-ajuda {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    z-index: 1000;
+}
+
+.frase-ajuda a {
+    color: #81ecff;
+    text-decoration: underline;
+}
+
+.tela-dividida {
+    display: flex;
+    height: 100vh;
+}
+
+/* Lado Esquerdo */
+.lado-esquerdo {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #333;
+}
+
+.lado-esquerdo h1 {
+    font-size: 32px;
+    color: #2a8dd2;
+    margin-bottom: 20px;
+    position: static; /* ou simplesmente remova a linha */
+    padding: 0;
+}
+
+.lado-esquerdo p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+    position: static; /* ou remova */
+    height: auto;
+    overflow: visible;
+    white-space: normal;
+}
+.imagem img {
+    margin-top: 5px;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Lado Direito */
+.link-voltar {
+    position: fixed;
+    bottom: 20px;  /* Distância do fundo da tela */
+    right: 20px;   /* Distância da borda direita da tela */
+    font-size: 14px;  /* Mesmo tamanho da frase de ajuda */
+    color: #a4f9ff;  /* Cor branca, igual à da frase de ajuda */
+    text-decoration: underline;  /* Sublinha o texto */
+    z-index: 1000;  /* Garante que o link fique acima de outros elementos */
+}
+
+.lado-direito h1 {
+    font-size: 28px;
+    color: #4cf3ff;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.lado-direito h2 {
+    font-size: 18px;
+    color: #e0f7ff;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: normal;
+}
+
+.lado-direito {
+    flex: 1;
+    background: linear-gradient(120deg, #2980b9, #6dd5fa);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.botao {
+    background-color: #ffffff;
+    color: #2a8dd2;
+    text-decoration: none;
+    padding: 18px 36px;
+    font-size: 19px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.botao:hover {
+    background-color: #1c6aa0;
+    color: #fff;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .tela-dividida {
+        flex-direction: column;
+    }
+
+    .lado-esquerdo, .lado-direito {
+        flex: unset;
+        padding: 40px;
+        text-align: center;
+    }
+}

@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+/* Reset básico */
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5faff;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Container padrão */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Cabeçalho fixo */
+header {
+  background-color: #2e86de;
+  color: white;
+  padding: 15px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  position: fixed; /* Torna o cabeçalho fixo no topo */
+  top: 0; /* Posiciona o cabeçalho no topo da página */
+  left: 0; /* Garante que o cabeçalho esteja alinhado à esquerda */
+  width: 100%; /* O cabeçalho vai ocupar 100% da largura da tela */
+  z-index: 1000; /* Garante que o cabeçalho fique acima de outros elementos */
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px; /* Garante que o conteúdo dentro do cabeçalho tenha um espaçamento interno */
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+nav ul.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  text-align: left;
+}
+
+nav ul.menu li a {
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+nav ul.menu li a:hover,
+nav ul.menu li a.btn-login {
+  background-color: #1b4f90;
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, #2980b9, #6dd5fa);
+  display: inline-block;
+  background-color: #1b4f90;
+  color: white;
+  padding: 12px 25px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+  box-shadow: 0 4px 8px rgba(27, 79, 144, 0.3);
+  max-width: max-content;
+  align-self: flex-start;
+}
+
+.btn-primary:hover {
+  background-color: #144172;
+  box-shadow: 0 6px 12px rgba(20, 65, 114, 0.5);
+}
+
+/* Ajuste para o conteúdo abaixo do cabeçalho */
+main {
+  margin-top: 80px; /* Ajuste a margem superior do conteúdo para não ficar coberto pelo cabeçalho */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav ul.menu {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .depoimentos-lista {
+    flex-direction: column;
+  }
+}
+
+.hero {
+  background: url('https://images.unsplash.com/photo-1588776814546-31e7e7e5f4a7?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+  color: white;
+  padding: 100px 20px;
+  position: relative;
+  text-align: left;
+}
+
+.hero::before {
+  background: linear-gradient(120deg, #2980b9, #6dd5fa);
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(46, 134, 222, 0.75);
+  z-index: 0;
+}
+
+.hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;  /* Garantir que o texto e o carrossel fiquem em extremos opostos */
+  gap: 40px;  /* Espaçamento entre o texto e o carrossel */
+  flex-wrap: nowrap;  /* Evitar que o conteúdo se quebre em várias linhas */
+}
+
+.hero-content .texto {
+  flex: 1 1 50%;  /* O texto ocupa 50% da largura */
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
+.hero-content .imagem {
+  flex: 0 0 70%;  /* O carrossel ocupa 70% da largura da tela */
+  width: 900; /* Remove qualquer limite de largura */
+  height: 600px;  /* A altura do carrossel */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  position: relative;
+}
+
+.carousel-wrapper {
+  width: 900px;  /* O carrossel ocupa toda a largura disponível */
+  height: 100%;  /* O carrossel vai ocupar toda a altura do seu contêiner */
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-slides {
+  display: flex;
+  height: 100%;
+  transition: transform 0.8s ease-in-out;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* As imagens vão se ajustar sem cortar e sem distorcer */
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+
+@media (max-width: 1000px) {
+  .hero-content .imagem {
+    flex: 0 0 100%;  /* O carrossel ocupa 100% da largura em telas menores */
+    height: 400px;  /* Ajuste a altura para dispositivos móveis */
+  }
+
+  .carousel-wrapper {
+    max-width: 1000px;  /* Limita a largura do carrossel */
+    height: 100%;  /* Ajusta a altura para 100% */
+  }
+}
+
+main h2 {
+  font-size: 2rem;
+  color: #2e86de;
+  margin-bottom: 15px;
+  border-left: 5px solid #2e86de;
+  padding-left: 10px;
+}
+
+.especialidades-lista {
+  list-style: none;
+  display: flex;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 15px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.especialidades-lista li {
+  background-color: #e3f0ff;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(46,134,222,0.2);
+  transition: transform 0.3s ease;
+}
+
+.especialidades-lista li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(46,134,222,0.4);
+}
+
+.passos {
+  list-style-position: inside;
+  padding-left: 20px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.passos li {
+  margin-bottom: 15px;
+}
+
+/* Estilo da Seção de Notícias */
+.noticias {
+  padding: 50px 0;
+  background-color: #f4f8fc;
+}
+
+.noticias h2 {
+  font-size: 2rem;
+  color: #2e86de;
+  margin-bottom: 30px;
+  border-left: 5px solid #2e86de;
+  padding-left: 10px;
+}
+
+.noticias-lista {
+  display: flex;  /* Usando Flexbox para alinhar as notícias lado a lado */
+  justify-content: space-between;  /* Garante que as notícias ocupem toda a largura */
+  gap: 30px;  /* Espaçamento entre as notícias */
+  flex-wrap: nowrap;  /* Impede que as notícias quebrem para a linha seguinte */
+  overflow-x: auto; /* Permite rolar horizontalmente se as notícias ultrapassarem a largura da tela */
+}
+
+.noticia {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex: 0 0 30%;  /* Cada notícia ocupa 30% da largura */
+  min-width: 300px;  /* Limita a largura mínima das notícias */
+  box-sizing: border-box;
+}
+
+.noticia img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.noticia h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.noticia p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.noticia a {
+  color: #1b4f90;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.noticia a:hover {
+  color: #144172;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .noticias-lista {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .noticias-lista {
+    flex-direction: column; /* As notícias empilham uma sobre a outra em telas menores */
+    gap: 15px;
+  }
+
+  .noticia {
+    width: 100%;  /* As notícias ocupam 100% da largura em telas pequenas */
+    min-width: unset;
+  }
+
+  .noticia img {
+    height: 150px;  /* Ajuste a altura das imagens no mobile */
+  }
+}
+
+
+/* Footer */
+footer {
+  background-color: #f0f0f0;
+  padding: 20px 0;
+  color: #555;
+  font-size: 0.9rem;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.redes-sociais a {
+  font-size: 1.6rem;
+  margin: 0 8px;
+  color: #2e86de;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.redes-sociais a:hover {
+  color: #1b4f90;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav ul.menu {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .depoimentos-lista {
+    flex-direction: column;
+  }
+}
+
